@@ -10,7 +10,7 @@ print(type(input_day_one))
 print(input_day_one)
 
 
-def day_one(input) :
+def day_one_first_star(input) :
     counter = 0
     for ch in input:
         if(ch == "("): 
@@ -22,7 +22,25 @@ def day_one(input) :
     return counter 
 
 
-resultDayOne = day_one(input_day_one)
+resultDayOne = day_one_first_star(input_day_one)
 
-print(type(resultDayOne))
-print(resultDayOne)
+
+def day_one_second_star(input_text):
+    counter = 0
+    position = 0
+    for ch in input_text:
+        position += 1
+        if ch == "(":
+            counter += 1
+        elif ch == ")":
+            counter -= 1
+        if counter == -1:
+            return position
+
+print(day_one_first_star(input_day_one))
+print(day_one_second_star(input_day_one))
+
+
+
+
+
