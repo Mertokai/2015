@@ -14,11 +14,18 @@ const dayTwo = (input) => {
     arr.push(array);
   }
   for (let i = 0; i < arr.length; i++) {
-    counter = calculator(arr[i]) + counter;
+    counter = calcTwoStar(arr[i]) + counter;
   }
   return counter;
 };
 
+function calcTwoStar(params) {
+  const nums = params.map(Number); // <- stringleri sayıya çevir
+  nums.sort((a, b) => a - b); // küçükten büyüğe
+  const wrap = 2 * (nums[0] + nums[1]); // en küçük iki kenarın çevresi
+  const bow = nums[0] * nums[1] * nums[2]; // hacim (fiyonk)
+  return wrap + bow;
+}
 function calculator(params) {
   const min = Math.min(
     params[0] * params[1],
